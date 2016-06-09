@@ -22,6 +22,7 @@ public class UserAuthenticationSteps {
 		driver = new FirefoxDriver();
 	}
 	
+	
     @Given("^(.*) is a registered Frequent Flyer$")
     public void givenARegisteredFrequentFlyer(FrequentFlyerMember user) {}
 
