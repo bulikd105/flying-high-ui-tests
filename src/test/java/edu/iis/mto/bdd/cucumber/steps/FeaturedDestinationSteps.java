@@ -4,11 +4,15 @@ import static org.hamcrest.Matchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.firefox.internal.ProfilesIni;
 
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
@@ -23,9 +27,15 @@ import cucumber.api.java.en.Then;
 public class FeaturedDestinationSteps {
 
 	private  WebDriver driver;
+
+	
 	@Before
 	public void init(){
-		driver = new FirefoxDriver();
+		ProfilesIni profile = new ProfilesIni();
+		FirefoxProfile ffprofile = profile.getProfile("default");
+
+		driver = new FirefoxDriver(ffprofile);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	
     @Then("^(?:she|he) should see ([0-9]+) featured destinations$")
