@@ -1,15 +1,8 @@
 package edu.iis.mto.bdd.cucumber.steps;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.junit.Assert.assertThat;
-
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
@@ -24,13 +17,14 @@ import cucumber.api.java.en.Then;
  * Date: 6/10/13
  * Time: 9:13 PM
  */
-public class FeaturedDestinationSteps {
+public class FeaturedDestinationSteps 
+{
 
 	private  WebDriver driver;
 
-	
 	@Before
-	public void init(){
+	public void init()
+	{
 		ProfilesIni profile = new ProfilesIni();
 		FirefoxProfile ffprofile = profile.getProfile("default");
 
@@ -39,18 +33,14 @@ public class FeaturedDestinationSteps {
 	}
 	
     @Then("^(?:she|he) should see ([0-9]+) featured destinations$")
-    public void shouldSeeFeaturedDestinations(int featuredCount) {
-    	
-    }
+    public void shouldSeeFeaturedDestinations(int featuredCount) {}
 
     @Then("^the featured destinations should include (.*) costing ([0-9]+)$")
-    public void featuredDestinationsShouldInclude(String expectedDestination, int price) {
-    	
-    	
-    }
+    public void featuredDestinationsShouldInclude(String expectedDestination, int price){}
     
     @After
-    public void close(){
+    public void close()
+    {
     	driver.close();
     }
 }
